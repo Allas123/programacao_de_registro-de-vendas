@@ -14,6 +14,7 @@ import view.CadastroClientes;
 import view.CadastroProdutos;
 import view.CadastroVendas;
 import view.ImportCSV;
+import view.ImportCSVVendas;
 import view.Principal;
 import view.Sobre;
 
@@ -35,6 +36,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         telas.add(new Principal (this), "principal");
         telas.add(new ImportCSV (this), "importCSV");
+        telas.add(new ImportCSVVendas(this), "importCSVVendas");
         telas.add(new CadastroClientes(this), "cadastroClientes");
         telas.add(new CadastroProdutos (this), "cadastroProdutos");
         telas.add(new AlterarCliente(this), "alterarCliente");
@@ -58,12 +60,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu5 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
         telaPrincipal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuPrincipal = new javax.swing.JMenu();
         menuItemSair = new javax.swing.JMenuItem();
         menuArquivo = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         menuItemImportar = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         menuClientes = new javax.swing.JMenu();
         menuItemCadastrar = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -73,6 +82,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+
+        jMenu5.setText("jMenu5");
+
+        jMenu7.setText("jMenu7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +103,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuPrincipal);
 
+        menuArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/page.png"))); // NOI18N
         menuArquivo.setText("Arquivo");
+
+        jMenu4.setText("Cliente");
 
         menuItemImportar.setText("Importar .CSV");
         menuItemImportar.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +114,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 menuItemImportarActionPerformed(evt);
             }
         });
-        menuArquivo.add(menuItemImportar);
+        jMenu4.add(menuItemImportar);
+
+        menuArquivo.add(jMenu4);
+
+        jMenu8.setText("Produtos");
+
+        jMenuItem6.setText("Importa .CSV");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem6);
+
+        menuArquivo.add(jMenu8);
+
+        jMenu6.setText("Vendas");
+
+        jMenuItem5.setText("Importa .CSV");
+        jMenu6.add(jMenuItem5);
+
+        menuArquivo.add(jMenu6);
 
         jMenuBar1.add(menuArquivo);
 
@@ -114,6 +151,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuClientes.add(menuItemCadastrar);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img.png"))); // NOI18N
         jMenuItem2.setText("Alterar / Excluir");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +256,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mostrar("cadastroVenda");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        mostrar("importCSVVendas");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -257,11 +299,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu menuArquivo;
     private javax.swing.JMenu menuClientes;
     private javax.swing.JMenuItem menuItemCadastrar;
