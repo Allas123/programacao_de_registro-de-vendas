@@ -7,7 +7,9 @@ package view;
 
 
 import classes.bean.Clientes;
+import classes.bean.Produtos;
 import classes.dao.ClientesDAO;
+import classes.dao.ProdutosDAO;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -211,24 +213,15 @@ public class ImportCSVProdutos extends javax.swing.JPanel {
                 // extratct data from lines
                 // set data to jtable model
                 for (int i = 0; i < tableLines.length; i++) {
-                    Clientes c = new Clientes();
-                    ClientesDAO dao = new ClientesDAO();
+                    Produtos p = new Produtos();
+                    ProdutosDAO dao = new ProdutosDAO();
                     String line = tableLines[i].toString().trim();
                     String[] dataRow = line.split(";");
-                    c.setNome(model.getValueAt(i, 0).toString());
-                    c.setCpf(model.getValueAt(i, 1).toString());
-                    c.setRua(model.getValueAt(i, 2).toString());
-                    c.setComplemento(model.getValueAt(i, 3).toString());
-                    c.setUf(model.getValueAt(i, 4).toString());
-                    c.setSetor(model.getValueAt(i, 5).toString());
-                    c.setCidade(model.getValueAt(i, 6).toString());
-                    c.setCep(model.getValueAt(i, 7).toString());
-                    c.setDdd(model.getValueAt(i, 8).toString());
-                    c.setNumero(model.getValueAt(i, 9).toString());
-                    c.setTipo(model.getValueAt(i, 10).toString());
-                    dao.salvar(c);
-                    
-       
+                    p.setDescricao(model.getValueAt(i, 0).toString());
+                    p.setPreco(model.getValueAt(i, 1).toString());
+                    p.setUnidade(model.getValueAt(i, 2).toString());
+                    dao.salvar(p);
+            
                   }
 
             } catch (FileNotFoundException ex) {
