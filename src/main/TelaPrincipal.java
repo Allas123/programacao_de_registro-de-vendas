@@ -13,7 +13,8 @@ import view.AlterarCliente;
 import view.CadastroClientes;
 import view.CadastroProdutos;
 import view.CadastroVendas;
-import view.ImportCSV;
+import view.ImportCSVClientes;
+import view.ImportCSVProdutos;
 import view.ImportCSVVendas;
 import view.Principal;
 import view.Sobre;
@@ -35,8 +36,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaPrincipal.add(telas, BorderLayout.CENTER);
         
         telas.add(new Principal (this), "principal");
-        telas.add(new ImportCSV (this), "importCSV");
+        telas.add(new ImportCSVClientes (this), "importCSV");
         telas.add(new ImportCSVVendas(this), "importCSVVendas");
+        telas.add(new ImportCSVProdutos(this), "importCSVProdutos");
         telas.add(new CadastroClientes(this), "cadastroClientes");
         telas.add(new CadastroProdutos (this), "cadastroProdutos");
         telas.add(new AlterarCliente(this), "alterarCliente");
@@ -91,6 +93,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         telaPrincipal.setLayout(new java.awt.BorderLayout());
 
+        menuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/application.png"))); // NOI18N
         menuPrincipal.setText(" Tela Principal");
 
         menuItemSair.setText("Sair");
@@ -106,7 +109,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/page.png"))); // NOI18N
         menuArquivo.setText("Arquivo");
 
-        jMenu4.setText("Cliente");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
+        jMenu4.setText("Clientes");
 
         menuItemImportar.setText("Importar .CSV");
         menuItemImportar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +137,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu6.setText("Vendas");
 
         jMenuItem5.setText("Importa .CSV");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem5);
 
         menuArquivo.add(jMenu6);
@@ -257,8 +266,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        mostrar("importCSVVendas");
+        mostrar("importCSVProdutos");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        mostrar("importCSVVendas");
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
