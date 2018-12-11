@@ -67,7 +67,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaPrincipal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuPrincipal = new javax.swing.JMenu();
-        menuItemSair = new javax.swing.JMenuItem();
         menuArquivo = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         menuItemImportar = new javax.swing.JMenuItem();
@@ -95,15 +94,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/application.png"))); // NOI18N
         menuPrincipal.setText(" Tela Principal");
-
-        menuItemSair.setText("Sair");
-        menuItemSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemSairActionPerformed(evt);
-            }
-        });
-        menuPrincipal.add(menuItemSair);
-
         jMenuBar1.add(menuPrincipal);
 
         menuArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/page.png"))); // NOI18N
@@ -234,12 +224,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mostrar("cadastroClientes");
     }//GEN-LAST:event_menuItemCadastrarActionPerformed
 
-    private void menuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSairActionPerformed
-        int input = JOptionPane.showConfirmDialog(null,
-            "Você deseja sair?","",JOptionPane.YES_NO_OPTION);
-
-    }//GEN-LAST:event_menuItemSairActionPerformed
-
     private void menuItemImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemImportarActionPerformed
         // TODO add your handling code here:
         mostrar("importCSV");
@@ -328,7 +312,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuClientes;
     private javax.swing.JMenuItem menuItemCadastrar;
     private javax.swing.JMenuItem menuItemImportar;
-    private javax.swing.JMenuItem menuItemSair;
     private javax.swing.JMenu menuPrincipal;
     private javax.swing.JPanel telaPrincipal;
     // End of variables declaration//GEN-END:variables
