@@ -7,12 +7,10 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import view.AlterarCliente;
 import view.CadastroClientes;
 import view.CadastroProdutos;
-import view.CadastroVendas;
 import view.ImportCSVClientes;
 import view.ImportCSVProdutos;
 import view.ImportCSVVendas;
@@ -43,7 +41,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telas.add(new CadastroProdutos (this), "cadastroProdutos");
         telas.add(new AlterarCliente(this), "alterarCliente");
         telas.add(new Sobre(this),"sobre");
-        telas.add(new CadastroVendas(this), "cadastroVenda");
             
         setSize(900, 700);
     }

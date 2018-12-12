@@ -22,18 +22,18 @@ public class Clientes {
     private String ddd;
     private String tipo;
     private String numero;
-    private int id;
+    private String codigoend;
+
+    public String getCodigoend() {
+        return codigoend;
+    }
+
+    public void setCodigoend(String codigoend) {
+        this.codigoend = codigoend;
+    }
 
     public String getNome() {
         return nome;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setNome(String nome) {

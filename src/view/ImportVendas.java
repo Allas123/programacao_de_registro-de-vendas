@@ -5,36 +5,27 @@
  */
 package view;
 
-
-import classes.bean.Clientes;
-import classes.dao.ClientesDAO;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import main.TelaPrincipal;
 
 /**
  *
  * @author marce
  */
-public class ImportCSVVendas extends javax.swing.JPanel {
+public class ImportVendas extends javax.swing.JPanel {
 
-    private final TelaPrincipal pai;
     /**
-     * Creates new form ImportCSV
-     * @param pai
+     * Creates new form ImportVendas
      */
-    public ImportCSVVendas(TelaPrincipal pai) {
+    public ImportVendas() {
         initComponents();
-        this.pai = pai;
     }
 
     /**
@@ -56,7 +47,7 @@ public class ImportCSVVendas extends javax.swing.JPanel {
         buttonSalvarCSV = new javax.swing.JButton();
         buttonCancelarCSV = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Importar CSV"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Importar Vendas"));
 
         buttonImport.setText("Selecionar...");
         buttonImport.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +110,7 @@ public class ImportCSVVendas extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(buttonCancelarCSV)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,81 +156,74 @@ public class ImportCSVVendas extends javax.swing.JPanel {
         if(returnVal == JFileChooser.APPROVE_OPTION){
             File file = jfc.getSelectedFile();
             txtLocalCSV.setText(file.getPath());
-            
-            try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            // get the first line
-            // get the columns name from the first line
-            // set columns name to the jtable model
-           DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-            
-            
-            // get lines from txt file
-            Object[] tableLines = br.lines().toArray();
-                
-            // extratct data from lines
-            // set data to jtable model
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(";");
-                model.addRow(dataRow);
-                
-            }           
-            
-        }   catch (FileNotFoundException ex) {
-                Logger.getLogger(ImportCSVVendas.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_buttonImportActionPerformed
 
-    private void buttonSalvarCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarCSVActionPerformed
-         
-         
-       String file = txtLocalCSV.getText();
-        
-        try {
+            try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 // get the first line
                 // get the columns name from the first line
                 // set columns name to the jtable model
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
 
                 // get lines from txt file
                 Object[] tableLines = br.lines().toArray();
 
                 // extratct data from lines
                 // set data to jtable model
-                for (int i = 0; i < tableLines.length; i++) {
-                    Clientes c = new Clientes();
-                    ClientesDAO dao = new ClientesDAO();
+                for(int i = 0; i < tableLines.length; i++)
+                {
                     String line = tableLines[i].toString().trim();
                     String[] dataRow = line.split(";");
-                    c.setNome(model.getValueAt(i, 0).toString());
-                    c.setCpf(model.getValueAt(i, 1).toString());
-                    c.setRua(model.getValueAt(i, 2).toString());
-                    c.setComplemento(model.getValueAt(i, 3).toString());
-                    c.setUf(model.getValueAt(i, 4).toString());
-                    c.setSetor(model.getValueAt(i, 5).toString());
-                    c.setCidade(model.getValueAt(i, 6).toString());
-                    c.setCep(model.getValueAt(i, 7).toString());
-                    c.setDdd(model.getValueAt(i, 8).toString());
-                    c.setNumero(model.getValueAt(i, 9).toString());
-                    c.setTipo(model.getValueAt(i, 10).toString());
-                    dao.salvar(c);
-                    
-       
-                  }
+                    model.addRow(dataRow);
+
+                }
 
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(ImportCSVVendas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ImportVendas.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }//GEN-LAST:event_buttonImportActionPerformed
+
+    private void buttonSalvarCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarCSVActionPerformed
+
+        /*String file = txtLocalCSV.getText();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+
+            // extratct data from lines
+            // set data to jtable model
+            for (int i = 0; i < tableLines.length; i++) {
+                Clientes c = new Clientes();
+                ClientesDAO dao = new ClientesDAO();
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(";");
+                c.setNome(model.getValueAt(i, 0).toString());
+                c.setCpf(model.getValueAt(i, 1).toString());
+                c.setRua(model.getValueAt(i, 2).toString());
+                c.setComplemento(model.getValueAt(i, 3).toString());
+                c.setUf(model.getValueAt(i, 4).toString());
+                c.setSetor(model.getValueAt(i, 5).toString());
+                c.setCidade(model.getValueAt(i, 6).toString());
+                c.setCep(model.getValueAt(i, 7).toString());
+                c.setDdd(model.getValueAt(i, 8).toString());
+                c.setNumero(model.getValueAt(i, 9).toString());
+                c.setTipo(model.getValueAt(i, 10).toString());
+                dao.salvar(c);
+
+            }
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ImportCSV.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }//GEN-LAST:event_buttonSalvarCSVActionPerformed
-    
-  
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancelarCSV;

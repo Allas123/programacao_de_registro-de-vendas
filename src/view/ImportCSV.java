@@ -25,14 +25,14 @@ import main.TelaPrincipal;
  *
  * @author marce
  */
-public class ImportCSVVendas extends javax.swing.JPanel {
+public class ImportCSV extends javax.swing.JPanel {
 
     private final TelaPrincipal pai;
     /**
      * Creates new form ImportCSV
      * @param pai
      */
-    public ImportCSVVendas(TelaPrincipal pai) {
+    public ImportCSV(TelaPrincipal pai) {
         initComponents();
         this.pai = pai;
     }
@@ -185,10 +185,11 @@ public class ImportCSVVendas extends javax.swing.JPanel {
                 String[] dataRow = line.split(";");
                 model.addRow(dataRow);
                 
-            }           
+            }
+                
             
         }   catch (FileNotFoundException ex) {
-                Logger.getLogger(ImportCSVVendas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ImportCSV.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_buttonImportActionPerformed
@@ -232,7 +233,7 @@ public class ImportCSVVendas extends javax.swing.JPanel {
                   }
 
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(ImportCSVVendas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ImportCSV.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_buttonSalvarCSVActionPerformed
     
