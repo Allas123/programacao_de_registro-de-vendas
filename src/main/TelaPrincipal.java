@@ -13,7 +13,6 @@ import view.CadastroClientes;
 import view.CadastroProdutos;
 import view.ImportCSVClientes;
 import view.ImportCSVProdutos;
-import view.ImportCSVVendas;
 import view.Principal;
 import view.Sobre;
 
@@ -34,8 +33,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaPrincipal.add(telas, BorderLayout.CENTER);
         
         telas.add(new Principal (this), "principal");
-        telas.add(new ImportCSVClientes (this), "importCSV");
-        telas.add(new ImportCSVVendas(this), "importCSVVendas");
+        telas.add(new ImportCSVClientes (this), "importCSVClientes");
         telas.add(new ImportCSVProdutos(this), "importCSVProdutos");
         telas.add(new CadastroClientes(this), "cadastroClientes");
         telas.add(new CadastroProdutos (this), "cadastroProdutos");
@@ -223,7 +221,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemImportarActionPerformed
         // TODO add your handling code here:
-        mostrar("importCSV");
+        mostrar("importCSVClientes");
     }//GEN-LAST:event_menuItemImportarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
